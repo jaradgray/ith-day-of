@@ -11,4 +11,7 @@
     <string name="item_holiday_tv_day_format">%s day of %s</string>
     <string name="item_holiday_tv_date_format">%d %s</string>
 
+    <!-- activity_holiday -->
+    <string name="activity_holiday_title_hint">Title</string>
+
 </resources>
