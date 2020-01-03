@@ -44,6 +44,10 @@ public class HolidayRepository {
         new DeleteHolidayAsyncTask(mHolidayDao).execute(holiday);
     }
 
+    public LiveData<List<Holiday>> getAllHolidays() {
+        return mAllHolidays;
+    }
+
 
     // AsyncTasks for performing Database operations on a background thread
     // Note: they are static so they don't have a reference to the Repository itself, which could create memory leaks
