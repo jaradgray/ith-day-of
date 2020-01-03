@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ith Day Of</string>
+
+    <!-- ordinal indicators -->
+    <string name="ordinal_indicator_st">st</string>
+    <string name="ordinal_indicator_nd">nd</string>
+    <string name="ordinal_indicator_rd">rd</string>
+    <string name="ordinal_indicator_th">th</string>
+
+    <!-- item_holiday TextView texts -->
+    <string name="item_holiday_tv_day_format">%s day of %s</string>
+    <string name="item_holiday_tv_date_format">%d %s</string>
+
 </resources>

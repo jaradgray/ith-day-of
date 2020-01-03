@@ -1,11 +1,15 @@
 package com.jgendeavors.ithdayof;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jgendeavors.ithdayof.util.Util;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -82,8 +86,44 @@ public class HolidayAdapter extends RecyclerView.Adapter<HolidayAdapter.HolidayV
     public void onBindViewHolder(@NonNull HolidayViewHolder holder, int position) {
         Holiday holiday = mHolidays.get(position);
 
-        // TODO set tvDay's text to number of days since holiday's date
-        // TODO set tvDate's text to holiday's date
+        // Set tvDay's text to number of days since holiday's date
+        final long millisPerDay = 1000 * 60 * 60 * 24;
+        Calendar calendar = Calendar.getInstance();
+        final long millisSinceHoliday = calendar.getTimeInMillis() - holiday.getDate();
+        final long daysSinceHoliday = calendar.getTimeInMillis() / millisPerDay + 1;
+
+        String daysSinceHolidayString = String.valueOf(daysSinceHoliday);
+
+        // get the ordinal indicator (-st, -nd, -rd, or -th)
+        final Context context = holder.tvDay.getContext();
+        String ordinalIndicator = "";
+        switch (daysSinceHolidayString.charAt(daysSinceHolidayString.length() - 1)) {
+            case '1':
+                ordinalIndicator = context.getString(R.string.ordinal_indicator_st);
+                break;
+            case '2':
+                ordinalIndicator = context.getString(R.string.ordinal_indicator_nd);
+                break;
+            case '3':
+                ordinalIndicator = context.getString(R.string.ordinal_indicator_rd);
+                break;
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '0':
+                ordinalIndicator = context.getString(R.string.ordinal_indicator_th);
+                break;
+        }
+
+        final String daysPlusOrdinal = daysSinceHolidayString + ordinalIndicator;
+        final String tvDayText = context.getString(R.string.item_holiday_tv_day_format, daysPlusOrdinal, holiday.getTitle());
+        holder.tvDay.setText(tvDayText);
+
+        // Set tvDate's text to holiday's date
+        holder.tvDate.setText(Util.getDateAsString(context, holiday.getDate()));
     }
 
     @Override
