@@ -31,6 +31,7 @@ public class Holiday {
     }
 
     // Getters
+    public int getId() { return mId; }
     public String getTitle() { return mTitle; }
     public long getDate() { return mDate; }
     public long getDateCreated() { return mDateCreated; }
