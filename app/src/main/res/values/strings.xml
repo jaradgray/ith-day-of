@@ -11,6 +11,9 @@
     <string name="ordinal_indicator_rd">rd</string>
     <string name="ordinal_indicator_th">th</string>
 
+    <!-- activity_main -->
+    <string name="activity_main_tv_text">Today is the</string>
+
     <!-- item_holiday TextView texts -->
     <string name="item_holiday_tv_day_format">%s day of %s</string>
     <string name="item_holiday_tv_date_format">%d %s</string>
