@@ -16,13 +16,15 @@
             android:id="@+id/item_holiday_tv_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ith day of HOLIDAY" />
+            android:text="ith day of HOLIDAY"
+            style="@style/Text.Title.Cardview"/>
 
         <TextView
             android:id="@+id/item_holiday_tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HOLIDAY DATE" />
+            android:text="HOLIDAY DATE"
+            style="@style/Text.Normal.Cardview"/>
 
     </LinearLayout>
 

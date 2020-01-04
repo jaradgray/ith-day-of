@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Today is the"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="@style/Text.Display"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/activity_main_recyclerview"
