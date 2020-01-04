@@ -5,10 +5,10 @@
     <!-- Text Size -->
     <dimen name="text_size_normal">18sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
-    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_large">32sp</dimen>
     <dimen name="text_size_display">36sp</dimen>
 
     <dimen name="text_size_normal_cardview">16sp</dimen>
     <dimen name="text_size_small_cardview">12sp</dimen>
-    <dimen name="text_size_large_cardview">17sp</dimen>
+    <dimen name="text_size_large_cardview">24sp</dimen>
 </resources>
