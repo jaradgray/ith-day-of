@@ -25,6 +25,9 @@ public interface HolidayDao {
     @Delete
     void delete(Holiday holiday);
 
+    @Query("SELECT * FROM holiday_table WHERE id = :id")
+    Holiday getHoliday(int id);
+
     @Query("SELECT * FROM holiday_table ORDER BY date DESC")
     LiveData<List<Holiday>> getHolidaysByDateDescending();
     @Query("SELECT * FROM holiday_table ORDER BY date_created DESC")

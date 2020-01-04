@@ -48,6 +48,14 @@ public class HolidayRepository {
         return mAllHolidays;
     }
 
+    public Holiday getHoliday(int id) {
+        Holiday result = null;
+        try {
+            result = new GetHolidayAsyncTask(mHolidayDao).execute(id).get();
+        } catch (Exception e) { System.err.println("HolidayRepository.getHoliday(int) Error: " + e); }
+        return result;
+    }
+
 
     // AsyncTasks for performing Database operations on a background thread
     // Note: they are static so they don't have a reference to the Repository itself, which could create memory leaks
@@ -97,6 +105,22 @@ public class HolidayRepository {
         protected Void doInBackground(Holiday... holidays) {
             holidayDao.delete(holidays[0]);
             return null;
+        }
+    }
+
+    private static class GetHolidayAsyncTask extends AsyncTask<Integer, Void, Holiday> {
+        // Instance Variables
+        private HolidayDao holidayDao; // since this AsyncTask is static, it doesn't have access to the repository's DAO
+
+        // Constructor
+        public GetHolidayAsyncTask(HolidayDao holidayDao) {
+            this.holidayDao = holidayDao;
+        }
+
+        // Overridden methods
+        @Override
+        protected Holiday doInBackground(Integer... integers) {
+            return holidayDao.getHoliday(integers[0]);
         }
     }
 }
