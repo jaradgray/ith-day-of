@@ -90,7 +90,7 @@ public class HolidayAdapter extends RecyclerView.Adapter<HolidayAdapter.HolidayV
         final long millisPerDay = 1000 * 60 * 60 * 24;
         Calendar calendar = Calendar.getInstance();
         final long millisSinceHoliday = calendar.getTimeInMillis() - holiday.getDate();
-        final long daysSinceHoliday = calendar.getTimeInMillis() / millisPerDay + 1;
+        final long daysSinceHoliday = millisSinceHoliday / millisPerDay + 1;
 
         String daysSinceHolidayString = String.valueOf(daysSinceHoliday);
 
