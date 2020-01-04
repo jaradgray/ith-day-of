@@ -56,6 +56,17 @@ public class HolidayActivity extends AppCompatActivity {
         // Get the ViewModel that will drive this Activity's UI
         mViewModel = ViewModelProviders.of(this).get(HolidayActivityViewModel.class);
 
+        // Set ViewModel's state based on if we're dealing with a new Holiday, or an existing Holiday
+        if (getIntent().hasExtra(EXTRA_ID)) {
+            int holidayId = getIntent().getIntExtra(EXTRA_ID, EXTRA_VALUE_NO_ID);
+            if (holidayId == EXTRA_VALUE_NO_ID) {
+                // dealing with a new Holiday
+            } else {
+                // dealing with an existing Holiday
+                mViewModel.setHolidayById(holidayId);
+            }
+        }
+
         // Observe changes to the ViewModel's Holiday
         mViewModel.getHoliday().observe(this, new Observer<Holiday>() {
             @Override
