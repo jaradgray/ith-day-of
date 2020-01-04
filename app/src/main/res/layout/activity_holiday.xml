@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_large"
             android:hint="@string/activity_holiday_title_hint"
-            android:inputType="text"
+            android:inputType="textCapWords"
             style="@style/Text.Title"
             android:background="@android:color/transparent" />
 

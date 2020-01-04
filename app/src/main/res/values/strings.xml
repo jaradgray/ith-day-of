@@ -19,7 +19,7 @@
     <string name="item_holiday_tv_date_format">%d %s</string>
 
     <!-- activity_holiday -->
-    <string name="activity_holiday_title_hint">Holiday name</string>
+    <string name="activity_holiday_title_hint">Holiday Name</string>
     <string name="activity_holiday_toast_no_title">Please name your holiday</string>
 
 </resources>
