@@ -49,7 +49,7 @@ public class HolidayActivity extends AppCompatActivity {
         // max date today
         mDatePicker.setMaxDate(calendar.getTimeInMillis());
         // min date a year ago yesterday
-        calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + 1);
         calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) - 1);
         mDatePicker.setMinDate(calendar.getTimeInMillis());
 
