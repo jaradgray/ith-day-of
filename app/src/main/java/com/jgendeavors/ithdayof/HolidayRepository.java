@@ -32,8 +32,12 @@ public class HolidayRepository {
     // These are the API methods the Repository exposes to the outside
     // Remember, database accesses must be performed on a background thread
 
-    public void insert(Holiday holiday) {
-        new InsertHolidayAsyncTask(mHolidayDao).execute(holiday);
+    public long insert(Holiday holiday) {
+        long result = -1;
+        try {
+            result = new InsertHolidayAsyncTask(mHolidayDao).execute(holiday).get();
+        } catch (Exception e) { System.err.println("HolidayRepository.insert(Holiday) Error: " + e); }
+        return result;
     }
 
     public void update(Holiday holiday) {
@@ -60,7 +64,7 @@ public class HolidayRepository {
     // AsyncTasks for performing Database operations on a background thread
     // Note: they are static so they don't have a reference to the Repository itself, which could create memory leaks
 
-    private static class InsertHolidayAsyncTask extends AsyncTask<Holiday, Void, Void> {
+    private static class InsertHolidayAsyncTask extends AsyncTask<Holiday, Void, Long> {
         // Instance Variables
         private HolidayDao holidayDao; // since this AsyncTask is static, it doesn't have access to the repository's DAO
 
@@ -70,9 +74,8 @@ public class HolidayRepository {
         }
 
         @Override
-        protected Void doInBackground(Holiday... holidays) {
-            holidayDao.insert(holidays[0]);
-            return null;
+        protected Long doInBackground(Holiday... holidays) {
+            return holidayDao.insert(holidays[0]);
         }
     }
 

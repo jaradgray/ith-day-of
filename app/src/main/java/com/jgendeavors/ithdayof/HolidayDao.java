@@ -19,7 +19,7 @@ import androidx.room.Update;
 @Dao
 public interface HolidayDao {
     @Insert
-    void insert(Holiday holiday);
+    long insert(Holiday holiday);
     @Update
     void update(Holiday holiday);
     @Delete
