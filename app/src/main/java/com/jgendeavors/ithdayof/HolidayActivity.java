@@ -90,7 +90,9 @@ public class HolidayActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_save_holiday:
-                saveHoliday();
+                if (saveHoliday()) {
+                    finish();
+                }
                 return true;
             case R.id.menu_item_delete_holiday:
                 deleteHoliday();
@@ -106,15 +108,16 @@ public class HolidayActivity extends AppCompatActivity {
 
     /**
      * Save this Activity's data as a Holiday via the ViewModel
+     * @return true if the Holiday was successfully saved, false otherwise
      */
-    private void saveHoliday() {
+    private boolean saveHoliday() {
         // Get data from Views
         String title = mEtTitle.getText().toString().trim();
 
         // title can't be empty
         if (title.isEmpty()) {
             Toast.makeText(this, getString(R.string.activity_holiday_toast_no_title), Toast.LENGTH_SHORT).show();
-            return;
+            return false;
         }
 
         // save data as a Holiday
@@ -128,6 +131,7 @@ public class HolidayActivity extends AppCompatActivity {
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
         mViewModel.saveHoliday(title, calendar.getTimeInMillis());
+        return true;
     }
 
     /**
