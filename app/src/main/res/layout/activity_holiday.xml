@@ -20,7 +20,6 @@
             android:layout_marginBottom="@dimen/margin_large"
             android:hint="@string/activity_holiday_title_hint"
             android:inputType="text"
-            style="@style/Text.Title"
             android:background="@android:color/transparent" />
 
         <DatePicker
