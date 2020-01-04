@@ -2,6 +2,8 @@ package com.jgendeavors.ithdayof;
 
 import android.app.Application;
 
+import java.util.Calendar;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -34,12 +36,23 @@ public class HolidayActivityViewModel extends AndroidViewModel {
     public void setHolidayById(int id) { mHoliday.setValue(mRepository.getHoliday(id)); }
     public void deleteHoliday() { mRepository.delete(mHoliday.getValue()); }
 
-    public void saveHoliday(/* TODO take data from views as parameters */) {
+    public void saveHoliday(String title, long date) {
         Holiday holiday;
         if (mHoliday.getValue() == null) {
             // save new Holiday
+            final long dateCreated = Calendar.getInstance().getTimeInMillis();
+            holiday = new Holiday(title, date, dateCreated);
+            int id = (int)mRepository.insert(holiday);
+            holiday.setId(id);
         } else {
-            // update existing Holiday
+            // update existing Holiday if its data has changed
+            Holiday oldHoliday = mHoliday.getValue();
+            boolean dataNotChanged = oldHoliday.getTitle().equals(title) && oldHoliday.getDate() == date;
+            if (dataNotChanged) return;
+
+            holiday = new Holiday(title, date, oldHoliday.getDateCreated());
+            holiday.setId(oldHoliday.getId());
+            mRepository.update(holiday);
         }
         // update this ViewModel's mHoliday
         mHoliday.setValue(holiday);
