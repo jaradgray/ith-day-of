@@ -34,7 +34,13 @@ public class HolidayActivityViewModel extends AndroidViewModel {
      * @param id
      */
     public void setHolidayById(int id) { mHoliday.setValue(mRepository.getHoliday(id)); }
-    public void deleteHoliday() { mRepository.delete(mHoliday.getValue()); }
+    public void deleteHoliday() {
+        if (mHoliday.getValue() == null){
+            return;
+        }
+
+        mRepository.delete(mHoliday.getValue());
+    }
 
     public void saveHoliday(String title, long date) {
         Holiday holiday;
