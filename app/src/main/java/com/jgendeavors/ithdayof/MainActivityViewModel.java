@@ -32,11 +32,6 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     // Data manipulation methods
-    // Our Activity only has access to the ViewModel and not the Repository, so we create
-    // wrapper methods for the Repository API
 
-    public void insert(Holiday holiday) { mRepository.insert(holiday); }
-    public void update(Holiday holiday) { mRepository.update(holiday); }
-    public void delete(Holiday holiday) { mRepository.delete(holiday); }
     public LiveData<List<Holiday>> getAllHolidays() { return mAllHolidays; }
 }
