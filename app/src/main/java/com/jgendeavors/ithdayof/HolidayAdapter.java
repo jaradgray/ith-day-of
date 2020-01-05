@@ -97,25 +97,23 @@ public class HolidayAdapter extends RecyclerView.Adapter<HolidayAdapter.HolidayV
         // get the ordinal indicator (-st, -nd, -rd, or -th)
         final Context context = holder.tvDay.getContext();
         String ordinalIndicator = "";
-        switch (daysSinceHolidayString.charAt(daysSinceHolidayString.length() - 1)) {
-            case '1':
-                ordinalIndicator = context.getString(R.string.ordinal_indicator_st);
-                break;
-            case '2':
-                ordinalIndicator = context.getString(R.string.ordinal_indicator_nd);
-                break;
-            case '3':
-                ordinalIndicator = context.getString(R.string.ordinal_indicator_rd);
-                break;
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-            case '0':
-                ordinalIndicator = context.getString(R.string.ordinal_indicator_th);
-                break;
+        if (daysSinceHolidayString.endsWith("0") ||
+                daysSinceHolidayString.endsWith("11") ||
+                daysSinceHolidayString.endsWith("12") ||
+                daysSinceHolidayString.endsWith("13") ||
+                daysSinceHolidayString.endsWith("4") ||
+                daysSinceHolidayString.endsWith("5") ||
+                daysSinceHolidayString.endsWith("6") ||
+                daysSinceHolidayString.endsWith("7") ||
+                daysSinceHolidayString.endsWith("8") ||
+                daysSinceHolidayString.endsWith("9")) {
+            ordinalIndicator = context.getString(R.string.ordinal_indicator_th);
+        } else if (daysSinceHolidayString.endsWith("1")) {
+            ordinalIndicator = context.getString(R.string.ordinal_indicator_st);
+        } else if (daysSinceHolidayString.endsWith("2")) {
+            ordinalIndicator = context.getString(R.string.ordinal_indicator_nd);
+        } else if (daysSinceHolidayString.endsWith("3")) {
+            ordinalIndicator = context.getString(R.string.ordinal_indicator_rd);
         }
 
         final String daysPlusOrdinal = daysSinceHolidayString + ordinalIndicator;
