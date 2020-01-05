@@ -1,8 +1,8 @@
 # ith Day Of
 
 ith Day Of is an Android app that keeps track of the number of days since a user-entered day. Like
-[Room Notes](https://github.com/jaradgray/RoomNotes)
-, it uses
+[Room Notes](https://github.com/jaradgray/RoomNotes),
+it uses
 [AndroidX](https://developer.android.com/jetpack/androidx/)
 libraries and
 [Android architecture components](https://developer.android.com/topic/libraries/architecture/)
@@ -14,8 +14,8 @@ to implement the
 ## Featured Components
 
 Like
-[Room Notes](https://github.com/jaradgray/RoomNotes)
-, ith Day Of features the following Android components:
+[Room Notes](https://github.com/jaradgray/RoomNotes),
+ith Day Of features the following Android components:
 
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 and
