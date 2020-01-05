@@ -9,7 +9,7 @@ libraries and
 to implement the
 [recommended app architecture](https://developer.android.com/jetpack/docs/guide#recommended-app-arch).
 
-[![Master-Detail Screenshot](docs/assets/master-detail.png)](docs/assets/master-detail.png)
+[![Master-Detail Screenshot](docs/assets/master-detail.jpg)](docs/assets/master-detail.jpg)
 
 ## Featured Components
 
@@ -35,4 +35,4 @@ to present database data to the user
 
 The idea of ith Day Of came from the following Instagram post:
 
-![Gubler post](docs/assets/gubler.jbp)
+[![Gubler post](docs/assets/gubler.jpg)](docs/assets/gubler.jpg)
